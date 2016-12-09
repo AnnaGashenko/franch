@@ -1,48 +1,39 @@
 ![alt tag](https://raw.github.com/dogfalo/materialize/master/images/materialize.gif)
 ===========
 
-[![Travis CI](https://travis-ci.org/Dogfalo/materialize.svg?branch=master)](https://travis-ci.org/Dogfalo/materialize)[![devDependency Status](https://david-dm.org/Dogfalo/materialize/dev-status.svg)](https://david-dm.org/Dogfalo/materialize#info=devDependencies)[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Dogfalo/materialize?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Входные данные
 
-[Materialize](http://materializecss.com/), a CSS Framework based on material design
+На сайте http://legend.franch.tv/, который является одним из сайтов компании, есть раздел "Достижения" и "Рейтинги". Необходимо создать систему достижений пользователя.
 
-### Current Version : v0.97.7
-
-## Sass Requirements:
-- Ruby Sass 3.3+, LibSass 0.6+
-
-## Supported Browsers:
-Chrome 35+, Firefox 31+, Safari 7+, IE 10+
-
-## Changelog
-- v0.97.7 (July 23rd)
-  - Basic horizontal cards
-  - Carousel bug fixes and new features
-  - Updated sidenav styles and new component
-  - Meteor package now supports Sass
-  - Autocomplete form component
-  - Chips jQuery plugin
-- v0.97.6 (April 1st)
-  - **Removed deprecated material icons from project**
-  - **Changed /font directory to /fonts**
-  - Datepicker and ScrollSpy now compatible with jQuery 2.2.x
-  - Responsive tables now work with empty cells
-  - Added focus states to checkboxes, switches, and radio buttons
-  - Sidenav and Modals no longer cause flicker with scrollbar
-  - Materialbox overflow and z-index issues fixed
-  - Added new option for Card actions within a Card reveal
-- v0.97.5 (Dec 21, 2015)
-  - Fixed Meteor package crash
-- v0.97.4 (Dec 20, 2015)
-  - Added Jasmine testing with Travis CI
-  - Select bugfixes
-  - Grid Offset bugfix
-  - Dropdown overflow bugfix
-  - Range slider error bugfix
+Имеется n достижений (можно менять, изменяя БД), которые могут быть 2 типов: однотипное и с разбивкой на уровни gold, silver, bronze. Каждое достижение имеет название и описание. Каждый тип достижения имеет иконку, описание и количество баллов, которое можно получить за него.
+Пользователь получает за достижение то количество баллов, которое записано для конкретного уровня. То есть, если он получил одно достижение уровня bronze и silver, то в общую сумму его баллов будут учтены только баллы за уровень silver, поскольку он выше.
+За регистрацию пользователь автоматически получает первое достижение.
+Предусмотреть возможность удалять достижения у пользователя посредством изменений БД.
+Пользователь может зарегистрироваться и войти в свой кабинет, где он должен видеть свои данные, общее количество баллов, которые он заработал и какие именно достижения получил.
 
 
 
-## Contributing
-[Please read CONTRIBUTING.md for more information](CONTRIBUTING.md)
+Задание
+1. Создать страницу регистрации, где пользователю необхоимо будет указать:
+	- имя (обязательно)
+	- email (обязательно)
+	- страну проживания (необязательно)
+	- выбрать тип пользователя: онлайн или живое участие (по умолчанию - онлайн)
+2. Создать страницу авторизации. Авторизация происходит по совпадению email и пароля.
+3. После регистрации пользователь должен быть перенаправлен на страницу, где ему будут показаны данные для входа:
+	- email
+	- пароль (должен быть сгенерирован автоматически)
+	- ссылка для входа
+4. Создать страницу с перечнем достижений (продублировать контент http://legend.franch.tv/achievs)
+5. Создать пользователя с данными для входа Email: user@test.test Pass: user
+6. Присвоить ему несколько достижений разных уровней.
+7. Создать структуру БД, которая будет покрывать задание и заполнить ее необходимыми данными.
+8. Написать понятную инструкцию по развертыванию Вашего кода и БД на нашем тестовом сервере.
 
-## Testing
-We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](https://docs.google.com/document/d/1dVM6qGt_b_y9RRhr9X7oZfFydaJIEqB9CT7yekv-4XE/edit?usp=sharing)
+
+
+Рекомендации
+1. Желательно использовать платформу Materialize (http://materializecss.com/) для верстки, потому что она используеться в большинстве сайтов компании.
+2. Для демонстрации достаточно взять несколько достижений со страницы-примера (http://legend.franch.tv/achievs), которые будут полностью покрывать задание.
+3. В пользовательском аккаунте вывести информацию по типу вывода участников на странице http://legend.franch.tv/ratings, откуда взять только данные пользователя, текущий рейтинг (число) и достижения (вывести иконками).
+4. Версия PHP - 5.3
