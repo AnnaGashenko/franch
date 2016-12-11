@@ -6,8 +6,8 @@ class Core {
 	static $CONT     = 'modules';
 	static $SKIN     = 'default';	
 	static $DB_NAME  = 'franch';
-	static $DB_LOGIN = 'ann-gashenko';
-	static $DB_PASS  = '0951762791';
+	static $DB_LOGIN = '';
+	static $DB_PASS  = '';
 	static $DB_LOCAL = 'localhost';	
 	static $DOMAIN   = 'http://franch/';
 	static $UPLOADER_DIR = '/uploaded/';	
